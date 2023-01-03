@@ -2,6 +2,8 @@
 
 Creating a simple interpreter in Rust. (Based on [Writing An Interpreter In Go](https://interpreterbook.com/))
 
+For the Rust version, see [here](https://github.com/AlvaroJSnish/go-interpreter).
+
 ## Progress
 
 - [x] Chapter 1: Lexing
