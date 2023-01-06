@@ -61,3 +61,20 @@ impl Token {
         }
     }
 }
+
+pub fn lookup_ident(ident: &str) -> TokenType {
+    match ident {
+        "fn" => TokenType::Function,
+        "let" => TokenType::Let,
+        "true" => TokenType::True,
+        "false" => TokenType::False,
+        "if" => TokenType::If,
+        "else" => TokenType::Else,
+        "return" => TokenType::Return,
+        "const" => TokenType::Const,
+        "var" => TokenType::Var,
+        "null" => TokenType::Null,
+        "undefined" => TokenType::Undefined,
+        _ => TokenType::Identifier(ident.to_string()),
+    }
+}

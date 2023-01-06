@@ -1,4 +1,4 @@
-use crate::token::{Token, TokenType};
+use crate::token::{lookup_ident, Token, TokenType};
 
 #[derive(Debug)]
 pub struct Lexer<'a> {
@@ -114,12 +114,13 @@ impl Lexer<'_> {
             _ => {
                 if self.ch.is_alphabetic() {
                     token.literal = self.read_identifier();
-                    token.token_type = TokenType::Identifier(token.literal.clone());
+                    token.token_type = lookup_ident(&token.literal);
                     token
                 } else if self.ch.is_numeric() {
                     token.literal = self.ch.to_string();
                     token.token_type = TokenType::Number(token.literal.parse::<i64>().unwrap());
                     token
+
                     // let position = self.position;
                     // while self.ch.is_numeric() {
                     //     self.read_char();
