@@ -1,15 +1,10 @@
-use std::io;
-
 pub mod lexer;
 pub mod repl;
-mod token;
-
-use crate::repl::start;
+pub mod token;
 
 fn main() {
-    let stdin = io::stdin();
-    let mut stdin = stdin.lock();
-    let stdout = io::stdout();
-    let mut stdout = stdout.lock();
-    start(&mut stdin, &mut stdout);
+    println!("Hello! This is the Monkey programming language!");
+    println!("Feel free to type in commands");
+
+    repl::start();
 }
